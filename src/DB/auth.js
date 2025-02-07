@@ -2,21 +2,18 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, on
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db } from "./firebace";
 
-// Реєстрація нового користувача
 export const registerUser = async (email, password, name) => {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
-        console.log("Користувач створений:", user); // 🔍 Лог для перевірки
-
-        // Додаємо користувача в Firestore
+        console.log("Користувач створений:", user); 
         await setDoc(doc(db, "Users", user.uid), {
             Name: name,
             Email: email
         });
 
-        console.log("Користувач доданий у Firestore"); // 🔍 Лог для перевірки
+        console.log("Користувач доданий у Firestore"); 
         return user;
     } catch (error) {
         console.error("Помилка реєстрації:", error.message);
@@ -25,7 +22,6 @@ export const registerUser = async (email, password, name) => {
 };
 
 
-// Вхід користувача
 export const loginUser = async (email, password) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -36,7 +32,6 @@ export const loginUser = async (email, password) => {
     }
 };
 
-// Вихід з аккаунта
 export const logoutUser = async () => {
     try {
         await signOut(auth);
@@ -45,7 +40,6 @@ export const logoutUser = async () => {
     }
 };
 
-// Отримання поточного користувача
 export const getCurrentUser = () => {
     return new Promise((resolve) => {
         onAuthStateChanged(auth, (user) => {

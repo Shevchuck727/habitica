@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Autorization from "./UI/Objects/Autorization";
 import MainWindow from "./UI/Windows/User/MainWindow";
-import { getCurrentUser, logoutUser } from "./DB/auth";
+import { getCurrentUser } from "./DB/auth";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -9,11 +9,6 @@ function App() {
     useEffect(() => {
         getCurrentUser().then(setUser);
     }, []);
-
-    const handleLogout = async () => {
-        await logoutUser();
-        setUser(null);
-    };
 
     return (
         <div className="app-container">
