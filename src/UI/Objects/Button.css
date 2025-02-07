@@ -1,0 +1,47 @@
+button{
+    font-size: calc(10px + 2vmin);
+    border-width: 0px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button:active{
+    color: #ffffff00;
+}
+
+button.active{
+    cursor: default;
+    background-color: #ffffff3c;
+}
+
+button.passive{
+    background-color: #ffffff89;
+
+}
+
+button.passive:hover{
+    background-color: #ffffffb9;
+
+}
+
+button.menu{
+    padding: 5px;
+}
+
+button.menu:hover{
+    background-color: #d1d1d1;
+}
+
+button.logout {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button.logout:hover {
+    background: #c82333;
+}

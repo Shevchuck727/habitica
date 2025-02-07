@@ -1,0 +1,9 @@
+.auth-container {
+    text-align: center;
+}
+
+.toggle-auth {
+    margin-top: 10px;
+    color: #007bff;
+    cursor: pointer;
+}
